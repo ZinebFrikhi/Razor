@@ -1,0 +1,40 @@
+﻿@page
+@model RazorProject.Pages.Products.CartModel
+<h1 class="display-4">Your Shopping Cart</h1>
+@if (Model.Products.Count == 0)
+{
+    <div class="alert alert-info">
+        Your cart is empty.
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>
+                        <form method="post" asp-page-handler="DeleteItem" asp-route-id="@item.Id">
+                            <input type="hidden" asp-for="@item.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h2 class="mt-4">Total Price: @Model.TotalPrice.ToString("C")</h2>
+}
+
+<a asp-page="Checkout" class="btn btn-primary">Proceed to Checkout</a>

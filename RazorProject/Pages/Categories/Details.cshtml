@@ -1,0 +1,27 @@
+﻿@page
+@model RazorProject.Pages.Category.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="display-4">Details</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Category</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Category.Name)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Category.Name)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Category.Description)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Category.Description)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-page="./Edit" asp-route-id="@Model.Category?.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary ml-2">Back to List</a>
+</div>

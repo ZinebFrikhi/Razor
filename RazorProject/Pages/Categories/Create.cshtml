@@ -1,0 +1,40 @@
+﻿@page
+@model RazorProject.Pages.Category.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-4">Create</h1>
+
+<h4 class="mt-4">Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Category.Name" class="control-label">Category Name</label>
+                <input asp-for="Category.Name" class="form-control" />
+                <span asp-validation-for="Category.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category.Description" class="control-label">Category Description</label>
+                <input asp-for="Category.Description" class="form-control" />
+                <span asp-validation-for="Category.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

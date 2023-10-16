@@ -1,0 +1,13 @@
+﻿@page
+@model AddToCartModel
+@{
+}
+<h1 class="display-4">Add to Cart</h1>
+
+<!-- Display product details here -->
+<p>Product Name: @Model.Product.Name</p>
+<p>Price: @Model.Product.Price</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-success">Add to Cart</button>
+</form>
